@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORTAFOLIO · Angelina Builes</title>
+    <meta name="description" content="Portafolio · IA aplicada · Agentes · MCP · Modelos de lenguaje · Angelina Builes. G3MM4, Creación de juegos en Roblox con IA, Bubble Hero, Asistente de voz de Ecovilla 4D, Tareas para personas y agentes, Orquestación de modelos según su coste, Agente de WhatsApp en un teléfono, Un modelo de 27.000 millones de parámetros en dos GPU, Voces de personajes con síntesis local, Cinemáticas grabadas por agentes, TechEnglish, Modelos 3D con IA para Roblox.">
+    <link rel="canonical" href="https://jelyblu.github.io/portafolio-ia/es/">
+    <link rel="alternate" hreflang="es" href="https://jelyblu.github.io/portafolio-ia/es/">
+    <link rel="alternate" hreflang="en" href="https://jelyblu.github.io/portafolio-ia/en/">
+    <link rel="alternate" hreflang="x-default" href="https://jelyblu.github.io/portafolio-ia/es/">
+    <meta property="og:title" content="PORTAFOLIO · Angelina Builes">
+    <meta property="og:description" content="Portafolio · IA aplicada · Agentes · MCP · Modelos de lenguaje · Angelina Builes. G3MM4, Creación de juegos en Roblox con IA, Bubble Hero, Asistente de voz de Ecovilla 4D, Tareas para personas y agentes, Orquestación de modelos según su coste, Agente de WhatsApp en un teléfono, Un modelo de 27.000 millones de parámetros en dos GPU, Voces de personajes con síntesis local, Cinemáticas grabadas por agentes, TechEnglish, Modelos 3D con IA para Roblox.">
+    <meta property="og:image" content="https://jelyblu.github.io/portafolio-ia/assets/img/gemma-1.jpg">
+    <meta property="og:type" content="profile">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,400;0,700;0,900;1,700;1,900&family=Montserrat:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .profile-page {
+            --ab-cyan: #00e5ff; --ab-ink: #e8eeff; --ab-dim: #8f9cbc; --ab-faint: #5d6a8a;
+            --ab-line: rgba(255, 255, 255, .09); --ab-surface: #0e1017; --ab-raised: #12141f;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .profile-page h1, .profile-page h2, .profile-page h3 { font-family: 'Exo 2', sans-serif; }
+        .ab-notch { clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%); }
+
+        .ab-hero { padding: 8.5rem 0 3.5rem; }
+        .ab-hero-grid { max-width: 900px; }
+        .ab-eyebrow {
+            font-family: 'Exo 2', sans-serif; font-size: .7rem; font-weight: 900; font-style: italic;
+            text-transform: uppercase; letter-spacing: .18em; color: var(--ab-cyan); margin: 0 0 1.1rem;
+        }
+        .ab-name { font-size: clamp(2.6rem, 7vw, 4.4rem); font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: -.02em; line-height: .95; margin: 0 0 .9rem; color: var(--ab-ink); }
+        .ab-role { font-size: clamp(1rem, 2vw, 1.2rem); font-weight: 700; color: var(--ab-cyan); line-height: 1.5; margin: 0 0 .7rem; }
+        .ab-meta { font-size: .88rem; color: var(--ab-faint); line-height: 1.7; margin: 0 0 1.5rem; }
+        .ab-links { display: flex; flex-wrap: wrap; gap: 1.4rem 1.1rem; }
+
+        .ab-work { padding: 3rem 0 0; }
+        .ab-featured { display: grid; gap: 1.5rem; }
+        .ab-feat {
+            display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+            background: var(--ab-surface); border: 1px solid var(--ab-line);
+            border-top: 1px solid rgba(0, 229, 255, .32);
+            transition: border-color .25s ease, transform .25s ease;
+            scroll-margin-top: 90px;
+        }
+        .ab-feat:hover { border-top-color: var(--ab-cyan); transform: translateY(-3px); }
+
+        /* Galería: la primera captura manda, las demás van en tira debajo,
+           igual que la columna de imágenes de cada página del PDF. */
+        .ab-shot {
+            display: grid; grid-template-rows: minmax(230px, 1fr) 120px; background: var(--ab-raised);
+            border-right: 1px solid var(--ab-line); overflow: hidden;
+        }
+        .ab-shot a { display: block; height: 100%; overflow: hidden; }
+        .ab-shot img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease; }
+        .ab-shot a:hover img { transform: scale(1.04); }
+        /* La captura principal no empuja la altura: rellena lo que mida el texto.
+           Sin esto una captura vertical estira la tarjeta a más de 1000 px. */
+        .ab-shot-main { min-height: 0; position: relative; }
+        .ab-shot-main > a { position: absolute; inset: 0; }
+        .ab-shot--solo { grid-template-rows: minmax(260px, 1fr); }
+        /* Proyectos de móvil: las capturas son verticales y en una tira baja
+           solo se vería una franja. Se les da más alto. */
+        .ab-shot--movil { grid-template-rows: minmax(200px, 1fr) 240px; }
+        .ab-shot--movil .ab-shot-strip img { object-position: center top; }
+        .ab-shot-strip { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 1px; background: var(--ab-line); min-height: 0; border-top: 1px solid var(--ab-line); }
+
+        .ab-feat-body { padding: 2rem 2.2rem; }
+        .ab-feat h3 { font-size: 1.5rem; font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: -.01em; color: var(--ab-ink); margin: 0 0 .45rem; }
+        .ab-context { font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ab-cyan); margin: 0 0 1.3rem; }
+        .ab-desc p { margin: 0 0 .9rem; font-size: .92rem; line-height: 1.75; color: var(--ab-dim); text-wrap: pretty; }
+        .ab-label {
+            font-family: 'Exo 2', sans-serif; font-size: .64rem; font-weight: 900; font-style: italic;
+            text-transform: uppercase; letter-spacing: .1em; color: var(--ab-faint); margin: 1.4rem 0 .55rem;
+        }
+        .ab-tech { display: flex; flex-wrap: wrap; gap: .3rem; }
+        .ab-tech span {
+            font-family: 'JetBrains Mono', monospace; font-size: .68rem; padding: .25rem .6rem;
+            border: 1px solid rgba(0, 229, 255, .26); color: var(--ab-cyan); letter-spacing: .03em;
+        }
+        .ab-out { display: inline-flex; gap: .35rem; margin-top: 1.3rem; margin-right: 1.4rem; color: var(--ab-ink); text-decoration: none; font-size: .84rem; font-weight: 700; border-bottom: 1px solid rgba(0, 229, 255, .4); padding-bottom: 2px; }
+        .ab-out:hover { color: var(--ab-cyan); border-bottom-color: var(--ab-cyan); }
+
+        .ab-rol { font-size: .9rem; font-weight: 700; color: var(--ab-ink); margin: 0 0 1.1rem; }
+        .ab-intro { max-width: 68ch; color: var(--ab-dim); line-height: 1.8; font-size: .98rem; margin: 1.2rem 0 1.8rem; text-wrap: pretty; }
+        .ab-eng { padding: 4rem 0 0; }
+        .ab-eng h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 900; font-style: italic; text-transform: uppercase; color: var(--ab-ink); margin: 0 0 1.6rem; }
+        .ab-eng-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; }
+        .ab-eng-card { background: var(--ab-surface); border: 1px solid var(--ab-line); border-top: 2px solid var(--ab-cyan); padding: 1.8rem 2rem; }
+        .ab-eng-card h3 { font-family: 'Exo 2', sans-serif; font-size: 1.05rem; font-weight: 900; font-style: italic; text-transform: uppercase; color: var(--ab-ink); margin: 0 0 .7rem; }
+        .ab-eng-card p { margin: 0; font-size: .92rem; line-height: 1.75; color: var(--ab-dim); }
+        .ab-feat--texto { grid-template-columns: 1fr; }
+        .ab-feat--texto .ab-feat-body { max-width: 82ch; }
+        .ab-cta { padding: 5rem 0 6rem; }
+        .ab-cta-inner {
+            border: 1px solid rgba(0, 229, 255, .28); border-top: 2px solid var(--ab-cyan);
+            background: radial-gradient(90% 140% at 50% 0%, rgba(0, 229, 255, .1) 0%, rgba(0, 229, 255, 0) 60%), var(--ab-surface);
+            padding: 3rem 2.5rem; text-align: center;
+        }
+        .ab-cta-inner h2 { font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 900; font-style: italic; text-transform: uppercase; color: var(--ab-ink); margin: 0 0 .8rem; }
+        .ab-cta-inner p { color: var(--ab-dim); max-width: 56ch; margin: 0 auto 2rem; line-height: 1.8; font-size: .95rem; }
+        .ab-cta-inner .ab-links { justify-content: center; }
+
+        /* Sin logo del estudio: el nombre ocupa el centro de la cabecera. */
+        .logo-container .logo-text { text-transform: uppercase; font-style: italic; }
+
+        @media (max-width: 900px) {
+            .ab-feat { grid-template-columns: 1fr; }
+            .ab-shot { border-right: 0; border-bottom: 1px solid var(--ab-line); }
+        }
+        @media (max-width: 600px) {
+            .ab-hero { padding: 7rem 0 2.5rem; }
+            .ab-feat-body { padding: 1.6rem 1.4rem; }
+            .ab-cta-inner { padding: 2.2rem 1.4rem; }
+            .ab-shot { grid-template-rows: 220px 90px; }
+            .ab-shot--movil { grid-template-rows: 200px 180px; }
+            .ab-shot--solo { grid-template-rows: 220px; }
+            .logo-container .logo-text { font-size: 1rem; }
+        }
+
+        .ab-vmodal { width: min(92vw, 960px); margin: auto; padding: 0; border: 1px solid var(--ab-line); border-radius: 4px; background: var(--ab-raised); overflow: visible; }
+        .ab-vmodal::backdrop { background: rgba(4, 8, 16, .84); backdrop-filter: blur(6px); }
+        .ab-vmodal-inner { position: relative; aspect-ratio: 16 / 9; }
+        .ab-vmodal iframe { display: block; width: 100%; height: 100%; border: 0; background: #000; }
+        .ab-vclose { position: absolute; top: -17px; right: -17px; width: 42px; height: 42px; display: grid; place-items: center; border: 0; border-radius: 50%; background: var(--ab-cyan); color: #04121a; font-size: 1.6rem; font-weight: 700; line-height: 1; cursor: pointer; box-shadow: 0 6px 18px rgba(0, 0, 0, .55); z-index: 1; }
+        .ab-vclose:hover { filter: brightness(1.12); }
+        .ab-vclose:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+        @media (max-width: 560px) { .ab-vclose { top: 8px; right: 8px; } }
+
+        #primary-navigation[data-visible="true"] .nav-links > li:nth-child(1) > a { animation-delay: 40ms; }
+        #primary-navigation[data-visible="true"] .nav-links > li:nth-child(2) > a { animation-delay: 84ms; }
+        #primary-navigation[data-visible="true"] .nav-links > li:nth-child(3) > a { animation-delay: 128ms; }
+        #primary-navigation[data-visible="true"] .nav-links > li:nth-child(4) > a { animation-delay: 172ms; }
+        #primary-navigation[data-visible="true"] .nav-links > li:nth-child(5) > a { animation-delay: 216ms; }
+        #primary-navigation[data-visible="true"] .nav-links > li:nth-child(6) > a { animation-delay: 260ms; }
+        #primary-navigation[data-visible="true"] .nav-links > li:nth-child(7) > a { animation-delay: 304ms; }
+        #primary-navigation[data-visible="true"] .nav-links > li:nth-child(8) > a { animation-delay: 348ms; }
+        #primary-navigation[data-visible="true"] .nav-links > li:nth-child(9) > a { animation-delay: 392ms; }
+        #primary-navigation[data-visible="true"] .nav-links > li:nth-child(10) > a { animation-delay: 436ms; }
+        #primary-navigation[data-visible="true"] .nav-links > li:nth-child(11) > a { animation-delay: 480ms; }
+        #primary-navigation[data-visible="true"] .nav-links > li:nth-child(12) > a { animation-delay: 524ms; }
+        #primary-navigation[data-visible="true"] .nav-links > li:nth-child(13) > a { animation-delay: 568ms; }
+        #primary-navigation[data-visible="true"] .nav-links > li:nth-child(14) > a { animation-delay: 612ms; }
+        #primary-navigation[data-visible="true"] .nav-links > li:nth-child(15) > a { animation-delay: 656ms; }
+        #primary-navigation[data-visible="false"] .nav-links > li:nth-child(1) > a { animation-delay: 392ms; }
+        #primary-navigation[data-visible="false"] .nav-links > li:nth-child(2) > a { animation-delay: 364ms; }
+        #primary-navigation[data-visible="false"] .nav-links > li:nth-child(3) > a { animation-delay: 336ms; }
+        #primary-navigation[data-visible="false"] .nav-links > li:nth-child(4) > a { animation-delay: 308ms; }
+        #primary-navigation[data-visible="false"] .nav-links > li:nth-child(5) > a { animation-delay: 280ms; }
+        #primary-navigation[data-visible="false"] .nav-links > li:nth-child(6) > a { animation-delay: 252ms; }
+        #primary-navigation[data-visible="false"] .nav-links > li:nth-child(7) > a { animation-delay: 224ms; }
+        #primary-navigation[data-visible="false"] .nav-links > li:nth-child(8) > a { animation-delay: 196ms; }
+        #primary-navigation[data-visible="false"] .nav-links > li:nth-child(9) > a { animation-delay: 168ms; }
+        #primary-navigation[data-visible="false"] .nav-links > li:nth-child(10) > a { animation-delay: 140ms; }
+        #primary-navigation[data-visible="false"] .nav-links > li:nth-child(11) > a { animation-delay: 112ms; }
+        #primary-navigation[data-visible="false"] .nav-links > li:nth-child(12) > a { animation-delay: 84ms; }
+        #primary-navigation[data-visible="false"] .nav-links > li:nth-child(13) > a { animation-delay: 56ms; }
+        #primary-navigation[data-visible="false"] .nav-links > li:nth-child(14) > a { animation-delay: 28ms; }
+        #primary-navigation[data-visible="false"] .nav-links > li:nth-child(15) > a { animation-delay: 0ms; }
+    </style>
+</head>
+
+<body>
+    <header id="main-header" class="scrolled">
+        <div class="container nav-wrapper">
+            <a href="#top" class="logo-container"><span class="logo-text">Angelina Builes</span></a>
+            <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
+                <div class="hamburger"></div>
+            </button>
+            <nav id="primary-navigation">
+                <ul class="nav-links">
+                    <li><a href="#gemma">G3MM4</a></li>
+                    <li><a href="#charla">Creación de juegos en Roblox con IA</a></li>
+                    <li><a href="#bubblehero">Bubble Hero</a></li>
+                    <li><a href="#ecovilla">Asistente de voz de Ecovilla 4D</a></li>
+                    <li><a href="#tareas">Tareas para personas y agentes</a></li>
+                    <li><a href="#orquestacion">Orquestación de modelos según su coste</a></li>
+                    <li><a href="#arky">Agente de WhatsApp en un teléfono</a></li>
+                    <li><a href="#llmlocal">Un modelo de 27.000 millones de parámetros en dos GPU</a></li>
+                    <li><a href="#voces">Voces de personajes con síntesis local</a></li>
+                    <li><a href="#cinematicas">Cinemáticas grabadas por agentes</a></li>
+                    <li><a href="#techenglish">TechEnglish</a></li>
+                    <li><a href="#blender">Modelos 3D con IA para Roblox</a></li>
+                    <li><a href="#ingenieria">Más</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="../en/" hreflang="en" lang="en">English</a></li>
+                </ul>
+            </nav>
+            <a class="nav-cta" href="../en/" hreflang="en" lang="en">English</a>
+        </div>
+    </header>
+
+    <main class="profile-page" id="top">
+        <section class="ab-hero">
+            <div class="container">
+                <div class="ab-hero-grid">
+                    <p class="ab-eyebrow">IA aplicada · Agentes · MCP · Modelos de lenguaje</p>
+                    <h1 class="ab-name">Angelina Builes</h1>
+                    <p class="ab-role">PORTAFOLIO 2024 - 2026</p>
+                    <p class="ab-meta">AngelinaBuilesC@gmail.com | 301 371 35 18 | Medellín - Colombia</p>
+                    <p class="ab-intro">Llevo dos años construyendo con inteligencia artificial: juegos que usan modelos de lenguaje en local, servidores MCP que conectan agentes con herramientas reales, agentes que trabajan a diario y pipelines de voz, visión y 3D. Me importa que funcione y que cueste lo justo, así que mido cada modelo antes de quedarme con él.</p>
+                    <div class="ab-links">
+                        <a class="btn btn-primary" href="mailto:AngelinaBuilesC@gmail.com">Contáctame</a>
+                        <a class="btn btn-secondary" href="https://www.linkedin.com/in/angelinabuiles" target="_blank" rel="noopener">LinkedIn</a>
+                        <a class="btn btn-secondary" href="https://github.com/Jelyblu" target="_blank" rel="noopener">GitHub</a>
+                        <a class="btn btn-secondary" href="https://dragonarkstudios.itch.io" target="_blank" rel="noopener">itch.io</a>
+                        <a class="btn btn-secondary" href="https://www.fiverr.com/angibuiles" target="_blank" rel="noopener">Fiverr</a>
+                        <a class="btn btn-secondary" href="https://dragonarkstudios.com/es/portfolio" target="_blank" rel="noopener">Portafolio del estudio</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="ab-work">
+            <div class="container">
+                <h2 class="sr-only">PORTAFOLIO</h2>
+                <div class="ab-featured">
+                    <article class="ab-feat" id="gemma">
+                        <div class="ab-shot">
+                            <div class="ab-shot-main"><a href="../assets/img/gemma-1.jpg" target="_blank" rel="noopener"><img src="../assets/img/gemma-1.jpg" alt="G3MM4, captura 1" loading="lazy"></a></div>
+                            <div class="ab-shot-strip"><a href="../assets/img/gemma-2.jpg" target="_blank" rel="noopener"><img src="../assets/img/gemma-2.jpg" alt="G3MM4, captura 2" loading="lazy"></a><a href="../assets/img/gemma-3.jpg" target="_blank" rel="noopener"><img src="../assets/img/gemma-3.jpg" alt="G3MM4, captura 3" loading="lazy"></a><a href="../assets/img/gemma-4.jpg" target="_blank" rel="noopener"><img src="../assets/img/gemma-4.jpg" alt="G3MM4, captura 4" loading="lazy"></a></div>
+                        </div>
+                        <div class="ab-feat-body">
+                            <h3>G3MM4</h3>
+                            <p class="ab-context">Juego educativo con un modelo de lenguaje local · Unity 6 · 2026</p>
+                            <p class="ab-label">Rol</p>
+                            <p class="ab-rol">Desarrolladora: integración del modelo y arquitectura de inferencia</p>
+                            <div class="ab-desc">
+                                <p>Un RPG de detectives cyberpunk para hispanohablantes que aprenden inglés. Los interrogatorios a los personajes, un minijuego de traducción y la narración del detective los genera un modelo de lenguaje que devuelve salida tipada en JSON.</p>
+                                <p>Diseñé una interfaz común de inferencia con motores intercambiables: Gemma en local con Ollama dentro del editor, MediaPipe para ejecutarlo en el propio teléfono Android y un motor de prueba. Cuando el modelo no respeta el esquema, un parser con tres reintentos recupera la respuesta. Los prompts son plantillas que el equipo de diseño puede editar, y el texto llega en streaming.</p>
+                            </div>
+                            <p class="ab-label">Tecnologías</p>
+                            <div class="ab-tech"><span>Unity 6</span><span>C#</span><span>Gemma</span><span>Ollama</span><span>MediaPipe</span><span>JSON Schema</span></div>
+                            
+                        </div>
+                    </article>
+                    <article class="ab-feat" id="charla">
+                        <div class="ab-shot">
+                            <div class="ab-shot-main"><a href="../assets/img/charla-1.jpg" target="_blank" rel="noopener"><img src="../assets/img/charla-1.jpg" alt="Creación de juegos en Roblox con IA, captura 1" loading="lazy"></a></div>
+                            <div class="ab-shot-strip"><a href="../assets/img/charla-2.jpg" target="_blank" rel="noopener"><img src="../assets/img/charla-2.jpg" alt="Creación de juegos en Roblox con IA, captura 2" loading="lazy"></a></div>
+                        </div>
+                        <div class="ab-feat-body">
+                            <h3>Creación de juegos en Roblox con IA</h3>
+                            <p class="ab-context">Charla en Interaction 2026 · Universidad Católica Luis Amigó · septiembre 2026</p>
+                            <p class="ab-label">Rol</p>
+                            <p class="ab-rol">Ponente y autora del kit</p>
+                            <div class="ab-desc">
+                                <p>Di la charla y preparé el kit para los asistentes: un agente de código abierto con un modelo gratuito construye un obby completo dentro de Roblox Studio a través de su servidor MCP, con mapa, scripts, tienda, power-ups y checkpoints, a partir de catorce prompts en español.</p>
+                                <p>El kit trae las reglas de trabajo del agente, cuatro skills reutilizables de Roblox y guías de instalación para Windows, macOS y Linux. Ensayé la demo cronometrando cada prompt para que cupiera en 45 minutos.</p>
+                            </div>
+                            <p class="ab-label">Tecnologías</p>
+                            <div class="ab-tech"><span>OpenCode</span><span>MiMo-V2.6-Flash</span><span>MCP</span><span>Roblox Studio</span><span>Luau</span></div>
+                            
+                            <a class="ab-out" href="https://dragonarkstudios.com/interaction-2026" target="_blank" rel="noopener">Ver el kit &rarr;</a>
+                        </div>
+                    </article>
+                    <article class="ab-feat" id="bubblehero">
+                        <div class="ab-shot">
+                            <div class="ab-shot-main"><a href="../assets/img/bubblehero-1.jpg" target="_blank" rel="noopener"><img src="../assets/img/bubblehero-1.jpg" alt="Bubble Hero, captura 1" loading="lazy"></a></div>
+                            <div class="ab-shot-strip"><a href="../assets/img/bubblehero-2.jpg" target="_blank" rel="noopener"><img src="../assets/img/bubblehero-2.jpg" alt="Bubble Hero, captura 2" loading="lazy"></a><a href="../assets/img/bubblehero-3.jpg" target="_blank" rel="noopener"><img src="../assets/img/bubblehero-3.jpg" alt="Bubble Hero, captura 3" loading="lazy"></a><a href="../assets/img/bubblehero-4.jpg" target="_blank" rel="noopener"><img src="../assets/img/bubblehero-4.jpg" alt="Bubble Hero, captura 4" loading="lazy"></a></div>
+                        </div>
+                        <div class="ab-feat-body">
+                            <h3>Bubble Hero</h3>
+                            <p class="ab-context">Juego comercial desarrollado con agentes de IA · Steam y Google Play</p>
+                            <p class="ab-label">Rol</p>
+                            <p class="ab-rol">Cocreadora: flujo de trabajo con agentes</p>
+                            <div class="ab-desc">
+                                <p>Bubble Hero se desarrolla con agentes de Claude Code como parte del equipo: 349 de sus 532 commits están coescritos con modelos de Claude.</p>
+                                <p>Monté un subagente director de arte, un agente nocturno que trabaja solo hasta la mañana en su propia rama con salidas de emergencia, y la transcripción local de las sesiones con jugadores usando Whisper, para que el audio nunca salga del equipo.</p>
+                            </div>
+                            <p class="ab-label">Tecnologías</p>
+                            <div class="ab-tech"><span>Claude Code</span><span>Subagentes</span><span>Hooks</span><span>Whisper</span><span>Unity</span></div>
+                            
+                            <a class="ab-out" href="https://store.steampowered.com/app/4517050/Bubble_Hero_The_Five_Elements/" target="_blank" rel="noopener">Ver en Steam &rarr;</a>
+                            <a class="ab-out" href="https://play.google.com/store/apps/details?id=com.DragonarkStudios.BubbleHero" target="_blank" rel="noopener">Ver en Google Play &rarr;</a>
+                        </div>
+                    </article>
+                    <article class="ab-feat" id="ecovilla">
+                        <div class="ab-shot">
+                            <div class="ab-shot-main"><a href="../assets/img/ecovilla-1.jpg" target="_blank" rel="noopener"><img src="../assets/img/ecovilla-1.jpg" alt="Asistente de voz de Ecovilla 4D, captura 1" loading="lazy"></a></div>
+                            <div class="ab-shot-strip"><a href="../assets/img/ecovilla-2.jpg" target="_blank" rel="noopener"><img src="../assets/img/ecovilla-2.jpg" alt="Asistente de voz de Ecovilla 4D, captura 2" loading="lazy"></a></div>
+                        </div>
+                        <div class="ab-feat-body">
+                            <h3>Asistente de voz de Ecovilla 4D</h3>
+                            <p class="ab-context">App de tablet con IA · con Ecopetrol y la UPB · diciembre 2024 a marzo 2025</p>
+                            <p class="ab-label">Rol</p>
+                            <p class="ab-rol">Desarrolladora del asistente</p>
+                            <div class="ab-desc">
+                                <p>Para la app de tablet de Ecovilla 4D construí un asistente de voz que responde las preguntas de los visitantes sobre la casa sostenible del futuro.</p>
+                                <p>El visitante habla, Whisper transcribe, el asistente responde con la API de Assistants de OpenAI sobre gpt-4o-mini y la respuesta se lee en voz alta con síntesis de voz, todo dentro de Unity.</p>
+                            </div>
+                            <p class="ab-label">Tecnologías</p>
+                            <div class="ab-tech"><span>Unity</span><span>C#</span><span>OpenAI Assistants API</span><span>gpt-4o-mini</span><span>Whisper</span><span>Text to Speech</span></div>
+                            <a class="ab-out" href="https://youtu.be/UNXelOfm4Hc" data-yt="UNXelOfm4Hc" target="_blank" rel="noopener">Ver el video &rarr;</a>
+                        </div>
+                    </article>
+                    <article class="ab-feat ab-feat--texto" id="tareas">
+                        
+                        <div class="ab-feat-body">
+                            <h3>Tareas para personas y agentes</h3>
+                            <p class="ab-context">Servidor MCP · Firebase · 2026</p>
+                            <p class="ab-label">Rol</p>
+                            <p class="ab-rol">Autora</p>
+                            <div class="ab-desc">
+                                <p>Un gestor de tareas en Firestore que comparten personas y agentes de IA en tiempo real. Escribí su servidor MCP en TypeScript, con diez herramientas para listar, crear, comentar, dividir en pasos y consultar la actividad, y un registro de qué agente hizo cada cambio. Lo usan a diario Claude Code, un agente en el teléfono y otros asistentes.</p>
+                                <p>Para el teléfono hice una versión sin dependencias que habla con la API REST de Firestore firmando el JWT a mano: ahorra 110 MB de dependencias y 107 MB de memoria por sesión, y suma herramientas de Google Calendar.</p>
+                            </div>
+                            <p class="ab-label">Tecnologías</p>
+                            <div class="ab-tech"><span>TypeScript</span><span>MCP</span><span>Firestore</span><span>Firebase Auth</span><span>React</span></div>
+                            
+                        </div>
+                    </article>
+                    <article class="ab-feat ab-feat--texto" id="orquestacion">
+                        
+                        <div class="ab-feat-body">
+                            <h3>Orquestación de modelos según su coste</h3>
+                            <p class="ab-context">Herramientas para agentes · 2026</p>
+                            <p class="ab-label">Rol</p>
+                            <p class="ab-rol">Autora</p>
+                            <div class="ab-desc">
+                                <p>Un conjunto de herramientas para repartir el trabajo entre varios modelos según lo que cuesta cada uno: un servidor MCP propio que delega las tareas mecánicas en Gemini Flash, registrado en Claude Code, OpenCode y Codex; scripts que miden la cuota que le queda a cada proveedor; y acceso a Amazon Bedrock con boto3 para usar Claude y Qwen3 Coder con créditos.</p>
+                                <p>Lo completan hooks y skills de Claude Code que recuerdan delegar. Antes de decidir lo medí: con los mismos retos de código, Gemini Flash consumió cerca del 0% de la cuota frente al 30% de un modelo grande.</p>
+                            </div>
+                            <p class="ab-label">Tecnologías</p>
+                            <div class="ab-tech"><span>MCP</span><span>Claude Code</span><span>Gemini</span><span>Amazon Bedrock</span><span>boto3</span><span>Node.js</span><span>Python</span></div>
+                            
+                        </div>
+                    </article>
+                    <article class="ab-feat ab-feat--texto" id="arky">
+                        
+                        <div class="ab-feat-body">
+                            <h3>Agente de WhatsApp en un teléfono</h3>
+                            <p class="ab-context">Agente conversacional · Android · 2026</p>
+                            <p class="ab-label">Rol</p>
+                            <p class="ab-rol">Autora del montaje</p>
+                            <div class="ab-desc">
+                                <p>Un agente que corre en un teléfono Android con OpenClaw y atiende por WhatsApp a las personas de un hogar: consulta y crea tareas, gestiona eventos de calendario y lleva cuentas, a través del servidor MCP del gestor de tareas.</p>
+                                <p>Funciona con modelos de Anthropic y de Amazon Bedrock encadenados como respaldo, entiende imágenes y tiene trabajos programados.</p>
+                            </div>
+                            <p class="ab-label">Tecnologías</p>
+                            <div class="ab-tech"><span>OpenClaw</span><span>MCP</span><span>Claude</span><span>Amazon Bedrock</span><span>Termux</span></div>
+                            
+                        </div>
+                    </article>
+                    <article class="ab-feat ab-feat--texto" id="llmlocal">
+                        
+                        <div class="ab-feat-body">
+                            <h3>Un modelo de 27.000 millones de parámetros en dos GPU</h3>
+                            <p class="ab-context">Inferencia local · agosto 2026</p>
+                            <p class="ab-label">Rol</p>
+                            <p class="ab-rol">Autora</p>
+                            <div class="ab-desc">
+                                <p>Serví Qwen 27B en local con llama.cpp, repartido entre una RTX 5070 y una RTX 3070, y lo expuse a los agentes como herramienta MCP. Con el reparto pasó de 2,6 tokens por segundo en una sola tarjeta a 25,5.</p>
+                                <p>Lo retiré después de compararlo con modelos en la nube: con 8.192 tokens de contexto y menos precisión en código de motores de juego, salía mejor delegar.</p>
+                            </div>
+                            <p class="ab-label">Tecnologías</p>
+                            <div class="ab-tech"><span>llama.cpp</span><span>Qwen</span><span>CUDA</span><span>MCP</span></div>
+                            
+                        </div>
+                    </article>
+                    <article class="ab-feat ab-feat--texto" id="voces">
+                        
+                        <div class="ab-feat-body">
+                            <h3>Voces de personajes con síntesis local</h3>
+                            <p class="ab-context">Pipeline de audio · septiembre 2026</p>
+                            <p class="ab-label">Rol</p>
+                            <p class="ab-rol">Autora</p>
+                            <div class="ab-desc">
+                                <p>Un pipeline que genera muchas tomas de cada frase con Chatterbox, las transcribe con Whisper y se queda con la mejor según su fidelidad al texto y su ritmo, para dar voz a los personajes de un juego de Roblox de marca.</p>
+                                <p>Comparé además Kokoro y Piper, y ajusté un modelo de conversión de voz (Seed-VC) con un dataset propio.</p>
+                            </div>
+                            <p class="ab-label">Tecnologías</p>
+                            <div class="ab-tech"><span>Chatterbox</span><span>faster-whisper</span><span>Kokoro</span><span>Seed-VC</span><span>PyTorch</span></div>
+                            
+                        </div>
+                    </article>
+                    <article class="ab-feat ab-feat--texto" id="cinematicas">
+                        
+                        <div class="ab-feat-body">
+                            <h3>Cinemáticas grabadas por agentes</h3>
+                            <p class="ab-context">Roblox Studio MCP · 2026</p>
+                            <p class="ab-label">Rol</p>
+                            <p class="ab-rol">Autora</p>
+                            <div class="ab-desc">
+                                <p>Un agente dirige y graba las cinemáticas y el tráiler de un juego de Roblox desde fuera del motor: mueve la cámara y los personajes a través del servidor MCP de Roblox Studio, graba cada plano en un monitor virtual y monta el resultado.</p>
+                            </div>
+                            <p class="ab-label">Tecnologías</p>
+                            <div class="ab-tech"><span>Roblox Studio MCP</span><span>Luau</span><span>Claude Code</span><span>FFmpeg</span></div>
+                            
+                        </div>
+                    </article>
+                    <article class="ab-feat ab-feat--texto" id="techenglish">
+                        
+                        <div class="ab-feat-body">
+                            <h3>TechEnglish</h3>
+                            <p class="ab-context">Prototipo de app de voz sin conexión · agosto 2026</p>
+                            <p class="ab-label">Rol</p>
+                            <p class="ab-rol">Autora</p>
+                            <div class="ab-desc">
+                                <p>Una app web para practicar inglés técnico hablado, con una entrevista de selección jugable, rúbrica y voz, sin ninguna petición externa: Whisper reconoce el habla y Kokoro sintetiza la voz, los dos dentro del navegador con WebGPU.</p>
+                            </div>
+                            <p class="ab-label">Tecnologías</p>
+                            <div class="ab-tech"><span>React</span><span>Whisper</span><span>Kokoro</span><span>ONNX Runtime Web</span><span>WebGPU</span></div>
+                            
+                        </div>
+                    </article>
+                    <article class="ab-feat" id="blender">
+                        <div class="ab-shot ab-shot--solo">
+                            <div class="ab-shot-main"><a href="../assets/img/blender-1.jpg" target="_blank" rel="noopener"><img src="../assets/img/blender-1.jpg" alt="Modelos 3D con IA para Roblox, captura 1" loading="lazy"></a></div>
+                        </div>
+                        <div class="ab-feat-body">
+                            <h3>Modelos 3D con IA para Roblox</h3>
+                            <p class="ab-context">Generación 3D · Meshy y Blender MCP · 2026</p>
+                            <p class="ab-label">Rol</p>
+                            <p class="ab-rol">Autora</p>
+                            <div class="ab-desc">
+                                <p>Generé once modelos 3D con Meshy AI para reemplazar la geometría provisional de un juego de terror en Roblox, y construí con scripts de Python y el servidor MCP de Blender una gárgola low-poly lista para Roblox, con 3.924 triángulos y texturas de 1024.</p>
+                            </div>
+                            <p class="ab-label">Tecnologías</p>
+                            <div class="ab-tech"><span>Meshy AI</span><span>Blender</span><span>Blender MCP</span><span>Python</span></div>
+                            
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="ab-eng" id="ingenieria">
+            <div class="container">
+                <h2>Más trabajo con IA</h2>
+                <div class="ab-eng-grid">
+                    <div class="ab-eng-card"><h3>Edición de video con agentes</h3><p>Edito video conversando con Claude Code. Para no depender de una API de pago escribí un reemplazo local de la transcripción con Whisper large-v3 en la GPU, que entrega exactamente el formato que espera la herramienta de edición.</p></div>
+                    <div class="ab-eng-card"><h3>Visión por computador</h3><p>Un control por gestos para luces inteligentes: una cámara ESP32 con LEDs infrarrojos sigue la punta de una varita y los detectores de mano y pose de MediaPipe convierten el movimiento en órdenes.</p></div>
+                    <div class="ab-eng-card"><h3>Triaje con un LLM local</h3><p>Un bot agéntico sobre un modelo de lenguaje local que lee reportes de bugs escritos en lenguaje natural, los clasifica y los registra por prioridad.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="ab-cta" id="contacto">
+            <div class="container">
+                <div class="ab-cta-inner ab-notch">
+                    <h2>¡GRACIAS!</h2>
+                    <p>AngelinaBuilesC@gmail.com | 301 371 35 18 | Medellín - Colombia</p>
+                    <div class="ab-links">
+                        <a class="btn btn-primary" href="mailto:AngelinaBuilesC@gmail.com">AngelinaBuilesC@gmail.com</a>
+                        <a class="btn btn-secondary" href="tel:+573013713518">301 371 35 18</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>AngelinaBuilesC@gmail.com | 301 371 35 18 | Medellín - Colombia</p>
+        </div>
+    </footer>
+
+    <dialog id="ab-vmodal" class="ab-vmodal">
+        <div class="ab-vmodal-inner">
+            <button type="button" class="ab-vclose" data-ab-vclose>
+                <span aria-hidden="true">&times;</span>
+                <span class="sr-only">Cerrar video</span>
+            </button>
+            <iframe title="Video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </dialog>
+
+    <script>
+        (function () {
+            // Menú: el mismo mecanismo que usa main.js en Dragonark.
+            var toggle = document.querySelector('.mobile-nav-toggle');
+            var nav = document.getElementById('primary-navigation');
+            function setMenu(open) {
+                nav.setAttribute('data-visible', open ? 'true' : 'false');
+                toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            }
+            toggle.addEventListener('click', function () {
+                setMenu(nav.getAttribute('data-visible') !== 'true');
+            });
+            nav.querySelectorAll('a').forEach(function (a) {
+                a.addEventListener('click', function () { setMenu(false); });
+            });
+            document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+
+            // Video en ventana: YouTube sin cookies. Sin JS, el enlace abre YouTube.
+            var modal = document.getElementById('ab-vmodal');
+            if (!modal || !modal.showModal) return;
+            var frame = modal.querySelector('iframe');
+            document.querySelectorAll('a[data-yt]').forEach(function (link) {
+                link.addEventListener('click', function (e) {
+                    if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+                    e.preventDefault();
+                    frame.src = 'https://www.youtube-nocookie.com/embed/' + link.getAttribute('data-yt') + '?autoplay=1&rel=0';
+                    modal.showModal();
+                });
+            });
+            modal.querySelector('[data-ab-vclose]').addEventListener('click', function () { modal.close(); });
+            modal.addEventListener('click', function (e) { if (e.target === modal) modal.close(); });
+            modal.addEventListener('close', function () { frame.src = 'about:blank'; });
+        })();
+    </script>
+</body>
+
+</html>

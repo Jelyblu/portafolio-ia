@@ -1,0 +1,257 @@
+{
+  "portada": {
+    "titulo": "PORTAFOLIO",
+    "subtitulo": "IA aplicada · Agentes · MCP · Modelos de lenguaje",
+    "anio": "2024 - 2026",
+    "ciudad": "Medellín - Colombia",
+    "telefono": "301 371 35 18",
+    "intro": "Llevo dos años construyendo con inteligencia artificial: juegos que usan modelos de lenguaje en local, servidores MCP que conectan agentes con herramientas reales, agentes que trabajan a diario y pipelines de voz, visión y 3D. Me importa que funcione y que cueste lo justo, así que mido cada modelo antes de quedarme con él."
+  },
+  "etiquetas": {
+    "apps": "Tecnologías",
+    "video": "Ver el video",
+    "descarga": "Descárgalo aquí",
+    "cierre": "¡GRACIAS!",
+    "web": "Ver la web",
+    "isla": "Ver"
+  },
+  "ingenieria": {
+    "titulo": "Más trabajo con IA",
+    "menu": "Más",
+    "bloques": [
+      {
+        "titulo": "Edición de video con agentes",
+        "texto": "Edito video conversando con Claude Code. Para no depender de una API de pago escribí un reemplazo local de la transcripción con Whisper large-v3 en la GPU, que entrega exactamente el formato que espera la herramienta de edición."
+      },
+      {
+        "titulo": "Visión por computador",
+        "texto": "Un control por gestos para luces inteligentes: una cámara ESP32 con LEDs infrarrojos sigue la punta de una varita y los detectores de mano y pose de MediaPipe convierten el movimiento en órdenes."
+      },
+      {
+        "titulo": "Triaje con un LLM local",
+        "texto": "Un bot agéntico sobre un modelo de lenguaje local que lee reportes de bugs escritos en lenguaje natural, los clasifica y los registra por prioridad."
+      }
+    ]
+  },
+  "proyectos": [
+    {
+      "id": "gemma",
+      "titulo": "G3MM4",
+      "tipo": "Juego educativo con un modelo de lenguaje local · Unity 6 · 2026",
+      "rol": "Desarrolladora: integración del modelo y arquitectura de inferencia",
+      "parrafos": [
+        "Un RPG de detectives cyberpunk para hispanohablantes que aprenden inglés. Los interrogatorios a los personajes, un minijuego de traducción y la narración del detective los genera un modelo de lenguaje que devuelve salida tipada en JSON.",
+        "Diseñé una interfaz común de inferencia con motores intercambiables: Gemma en local con Ollama dentro del editor, MediaPipe para ejecutarlo en el propio teléfono Android y un motor de prueba. Cuando el modelo no respeta el esquema, un parser con tres reintentos recupera la respuesta. Los prompts son plantillas que el equipo de diseño puede editar, y el texto llega en streaming."
+      ],
+      "apps": [
+        "Unity 6",
+        "C#",
+        "Gemma",
+        "Ollama",
+        "MediaPipe",
+        "JSON Schema"
+      ]
+    },
+    {
+      "id": "charla",
+      "titulo": "Creación de juegos en Roblox con IA",
+      "tipo": "Charla en Interaction 2026 · Universidad Católica Luis Amigó · septiembre 2026",
+      "rol": "Ponente y autora del kit",
+      "parrafos": [
+        "Di la charla y preparé el kit para los asistentes: un agente de código abierto con un modelo gratuito construye un obby completo dentro de Roblox Studio a través de su servidor MCP, con mapa, scripts, tienda, power-ups y checkpoints, a partir de catorce prompts en español.",
+        "El kit trae las reglas de trabajo del agente, cuatro skills reutilizables de Roblox y guías de instalación para Windows, macOS y Linux. Ensayé la demo cronometrando cada prompt para que cupiera en 45 minutos."
+      ],
+      "apps": [
+        "OpenCode",
+        "MiMo-V2.6-Flash",
+        "MCP",
+        "Roblox Studio",
+        "Luau"
+      ],
+      "enlaces": [
+        [
+          "Ver el kit",
+          "https://dragonarkstudios.com/interaction-2026"
+        ]
+      ]
+    },
+    {
+      "id": "bubblehero",
+      "titulo": "Bubble Hero",
+      "tipo": "Juego comercial desarrollado con agentes de IA · Steam y Google Play",
+      "rol": "Cocreadora: flujo de trabajo con agentes",
+      "parrafos": [
+        "Bubble Hero se desarrolla con agentes de Claude Code como parte del equipo: 349 de sus 532 commits están coescritos con modelos de Claude.",
+        "Monté un subagente director de arte, un agente nocturno que trabaja solo hasta la mañana en su propia rama con salidas de emergencia, y la transcripción local de las sesiones con jugadores usando Whisper, para que el audio nunca salga del equipo."
+      ],
+      "apps": [
+        "Claude Code",
+        "Subagentes",
+        "Hooks",
+        "Whisper",
+        "Unity"
+      ],
+      "enlaces": [
+        [
+          "Ver en Steam",
+          "https://store.steampowered.com/app/4517050/Bubble_Hero_The_Five_Elements/"
+        ],
+        [
+          "Ver en Google Play",
+          "https://play.google.com/store/apps/details?id=com.DragonarkStudios.BubbleHero"
+        ]
+      ]
+    },
+    {
+      "id": "ecovilla",
+      "titulo": "Asistente de voz de Ecovilla 4D",
+      "tipo": "App de tablet con IA · con Ecopetrol y la UPB · diciembre 2024 a marzo 2025",
+      "rol": "Desarrolladora del asistente",
+      "parrafos": [
+        "Para la app de tablet de Ecovilla 4D construí un asistente de voz que responde las preguntas de los visitantes sobre la casa sostenible del futuro.",
+        "El visitante habla, Whisper transcribe, el asistente responde con la API de Assistants de OpenAI sobre gpt-4o-mini y la respuesta se lee en voz alta con síntesis de voz, todo dentro de Unity."
+      ],
+      "apps": [
+        "Unity",
+        "C#",
+        "OpenAI Assistants API",
+        "gpt-4o-mini",
+        "Whisper",
+        "Text to Speech"
+      ],
+      "video": "https://youtu.be/UNXelOfm4Hc"
+    },
+    {
+      "id": "tareas",
+      "titulo": "Tareas para personas y agentes",
+      "tipo": "Servidor MCP · Firebase · 2026",
+      "rol": "Autora",
+      "parrafos": [
+        "Un gestor de tareas en Firestore que comparten personas y agentes de IA en tiempo real. Escribí su servidor MCP en TypeScript, con diez herramientas para listar, crear, comentar, dividir en pasos y consultar la actividad, y un registro de qué agente hizo cada cambio. Lo usan a diario Claude Code, un agente en el teléfono y otros asistentes.",
+        "Para el teléfono hice una versión sin dependencias que habla con la API REST de Firestore firmando el JWT a mano: ahorra 110 MB de dependencias y 107 MB de memoria por sesión, y suma herramientas de Google Calendar."
+      ],
+      "apps": [
+        "TypeScript",
+        "MCP",
+        "Firestore",
+        "Firebase Auth",
+        "React"
+      ]
+    },
+    {
+      "id": "orquestacion",
+      "titulo": "Orquestación de modelos según su coste",
+      "tipo": "Herramientas para agentes · 2026",
+      "rol": "Autora",
+      "parrafos": [
+        "Un conjunto de herramientas para repartir el trabajo entre varios modelos según lo que cuesta cada uno: un servidor MCP propio que delega las tareas mecánicas en Gemini Flash, registrado en Claude Code, OpenCode y Codex; scripts que miden la cuota que le queda a cada proveedor; y acceso a Amazon Bedrock con boto3 para usar Claude y Qwen3 Coder con créditos.",
+        "Lo completan hooks y skills de Claude Code que recuerdan delegar. Antes de decidir lo medí: con los mismos retos de código, Gemini Flash consumió cerca del 0% de la cuota frente al 30% de un modelo grande."
+      ],
+      "apps": [
+        "MCP",
+        "Claude Code",
+        "Gemini",
+        "Amazon Bedrock",
+        "boto3",
+        "Node.js",
+        "Python"
+      ]
+    },
+    {
+      "id": "arky",
+      "titulo": "Agente de WhatsApp en un teléfono",
+      "tipo": "Agente conversacional · Android · 2026",
+      "rol": "Autora del montaje",
+      "parrafos": [
+        "Un agente que corre en un teléfono Android con OpenClaw y atiende por WhatsApp a las personas de un hogar: consulta y crea tareas, gestiona eventos de calendario y lleva cuentas, a través del servidor MCP del gestor de tareas.",
+        "Funciona con modelos de Anthropic y de Amazon Bedrock encadenados como respaldo, entiende imágenes y tiene trabajos programados."
+      ],
+      "apps": [
+        "OpenClaw",
+        "MCP",
+        "Claude",
+        "Amazon Bedrock",
+        "Termux"
+      ]
+    },
+    {
+      "id": "llmlocal",
+      "titulo": "Un modelo de 27.000 millones de parámetros en dos GPU",
+      "tipo": "Inferencia local · agosto 2026",
+      "rol": "Autora",
+      "parrafos": [
+        "Serví Qwen 27B en local con llama.cpp, repartido entre una RTX 5070 y una RTX 3070, y lo expuse a los agentes como herramienta MCP. Con el reparto pasó de 2,6 tokens por segundo en una sola tarjeta a 25,5.",
+        "Lo retiré después de compararlo con modelos en la nube: con 8.192 tokens de contexto y menos precisión en código de motores de juego, salía mejor delegar."
+      ],
+      "apps": [
+        "llama.cpp",
+        "Qwen",
+        "CUDA",
+        "MCP"
+      ]
+    },
+    {
+      "id": "voces",
+      "titulo": "Voces de personajes con síntesis local",
+      "tipo": "Pipeline de audio · septiembre 2026",
+      "rol": "Autora",
+      "parrafos": [
+        "Un pipeline que genera muchas tomas de cada frase con Chatterbox, las transcribe con Whisper y se queda con la mejor según su fidelidad al texto y su ritmo, para dar voz a los personajes de un juego de Roblox de marca.",
+        "Comparé además Kokoro y Piper, y ajusté un modelo de conversión de voz (Seed-VC) con un dataset propio."
+      ],
+      "apps": [
+        "Chatterbox",
+        "faster-whisper",
+        "Kokoro",
+        "Seed-VC",
+        "PyTorch"
+      ]
+    },
+    {
+      "id": "cinematicas",
+      "titulo": "Cinemáticas grabadas por agentes",
+      "tipo": "Roblox Studio MCP · 2026",
+      "rol": "Autora",
+      "parrafos": [
+        "Un agente dirige y graba las cinemáticas y el tráiler de un juego de Roblox desde fuera del motor: mueve la cámara y los personajes a través del servidor MCP de Roblox Studio, graba cada plano en un monitor virtual y monta el resultado."
+      ],
+      "apps": [
+        "Roblox Studio MCP",
+        "Luau",
+        "Claude Code",
+        "FFmpeg"
+      ]
+    },
+    {
+      "id": "techenglish",
+      "titulo": "TechEnglish",
+      "tipo": "Prototipo de app de voz sin conexión · agosto 2026",
+      "rol": "Autora",
+      "parrafos": [
+        "Una app web para practicar inglés técnico hablado, con una entrevista de selección jugable, rúbrica y voz, sin ninguna petición externa: Whisper reconoce el habla y Kokoro sintetiza la voz, los dos dentro del navegador con WebGPU."
+      ],
+      "apps": [
+        "React",
+        "Whisper",
+        "Kokoro",
+        "ONNX Runtime Web",
+        "WebGPU"
+      ]
+    },
+    {
+      "id": "blender",
+      "titulo": "Modelos 3D con IA para Roblox",
+      "tipo": "Generación 3D · Meshy y Blender MCP · 2026",
+      "rol": "Autora",
+      "parrafos": [
+        "Generé once modelos 3D con Meshy AI para reemplazar la geometría provisional de un juego de terror en Roblox, y construí con scripts de Python y el servidor MCP de Blender una gárgola low-poly lista para Roblox, con 3.924 triángulos y texturas de 1024."
+      ],
+      "apps": [
+        "Meshy AI",
+        "Blender",
+        "Blender MCP",
+        "Python"
+      ]
+    }
+  ]
+}
